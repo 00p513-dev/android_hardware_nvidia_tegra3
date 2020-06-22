@@ -194,7 +194,7 @@ static MD_INLINE void LogInfo(const char* format, ...)
    va_end(ap);
 }
 
-static MD_INLINE void TRACE_ERROR(const char* format, ...)
+static MD_INLINE __attribute__((unused))void TRACE_ERROR(const char* format, ...)
 {
 #ifndef NDEBUG
    va_list ap;
@@ -872,7 +872,7 @@ static void notify(const wchar_t* pMessage, uint32_t nMessageType)
  * instructions and execute them in a loop. It never returns, but may call
  * exit when instructed to shutdown by the service
  */
-static int runSession(TEEC_Context* pContext, TEEC_Session* pSession, TEEC_Operation* pOperation)
+static int runSession(__attribute__((unused))TEEC_Context* pContext, __attribute__((unused))TEEC_Session* pSession, __attribute__((unused))TEEC_Operation* pOperation)
 {
    memset(&g_pExchangeBuffer->sAdministrativeData, 0x00, sizeof(g_pExchangeBuffer->sAdministrativeData));
 
@@ -1104,7 +1104,7 @@ instruction_parse_end:
 /**
  * This function opens a new session to the delegation service.
  **/
-static int createSession(TEEC_Context* pContext, TEEC_Session* pSession, TEEC_Operation* pOperation)
+static int createSession(__attribute__((unused))TEEC_Context* pContext, __attribute__((unused))TEEC_Session* pSession, __attribute__((unused))TEEC_Operation* pOperation)
 {
    TEEC_Result nError;
    uint32_t nExchangeBufferSize;

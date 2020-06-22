@@ -29,5 +29,5 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
 
 # Security
-BOARD_USES_SECURE_SERVICES := true
-include $(TEGRA3_BASE)/sepolicy/sepolicy.mk
+#BOARD_USES_SECURE_SERVICES := true
+#include $(TEGRA3_BASE)/sepolicy/sepolicy.mk

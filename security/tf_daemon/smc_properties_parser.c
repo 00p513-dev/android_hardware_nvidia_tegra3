@@ -542,6 +542,18 @@ error:
    API functions.
    ---------------------------------------------------------------------------------*/
 
+uint32_t SMCPropGetSystemPropertyAsInt(CONF_FILE* pConfFile, char* pPropertyName)
+{
+   uint32_t nValue;
+   char* pValue=SMCPropGetSystemProperty(pConfFile,pPropertyName);
+
+   if (libString2GetStringAsInt(pValue, &nValue) == S_SUCCESS)
+   {
+      return nValue;
+   }
+   return 0;
+}
+
 char* SMCPropGetSystemProperty(CONF_FILE* pConfFile, char* pPropertyName)
 {
    PROPERTY* pProperty;
@@ -556,19 +568,6 @@ char* SMCPropGetSystemProperty(CONF_FILE* pConfFile, char* pPropertyName)
    }
    return NULL;
 }
-
-uint32_t SMCPropGetSystemPropertyAsInt(CONF_FILE* pConfFile, char* pPropertyName)
-{
-   uint32_t nValue;
-   char* pValue=SMCPropGetSystemProperty(pConfFile,pPropertyName);
-
-   if (libString2GetStringAsInt(pValue, &nValue) == S_SUCCESS)
-   {
-      return nValue;
-   }
-   return 0;
-}
-
 
 S_RESULT SMCPropParseConfigFile(char* pConfigFilename,CONF_FILE* pConfFile)
 {
